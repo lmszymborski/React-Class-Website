@@ -4,6 +4,12 @@ import Tabs from "react-bootstrap/Tabs";
 import Tab from "react-bootstrap/Tab";
 import Sidebar from "./Sidebar";
 import CourseArea from "./CourseArea";
+import Home from "./Home";
+import Sections from "./Sections";
+
+import { ButtonGroup } from "react-bootstrap";
+import { Button } from "react-bootstrap";
+
 
 /**
  * The main application component.
@@ -129,63 +135,75 @@ class App extends React.Component {
   render() {
     return (
       <>
+      
         <Tabs
-          defaultActiveKey="search"
+          defaultActiveKey="home"
           style={{
             position: "fixed",
-            zIndex: 1,
+            zIndex: 2,
             width: "100%",
             backgroundColor: "white",
           }}
         >
-          {/* Search Tab */}
-          <Tab eventKey="search" title="Search" style={{ paddingTop: "5vh" }}>
-            <Sidebar
-              setCourses={(courses) => this.setCourses(courses)}
-              courses={this.state.allCourses}
-              subjects={this.state.subjects}
-            />
-            <div style={{ marginLeft: "20vw" }}>
-              <CourseArea
-                data={this.state.filteredCourses}
-                allData={this.state.allCourses}
-                cartCourses={this.state.cartCourses}
-                addCartCourse={this.addCartCourse.bind(this)}
-                removeCartCourse={this.removeCartCourse.bind(this)}
-              />
-            </div>
+          <Tab eventKey="home" title="Home" style={{ paddingTop: "5vh" }}>
+            <Home/>
           </Tab>
 
-          {/* Cart Tab */}
-          <Tab eventKey="cart" title="Cart" style={{ paddingTop: "5vh" }}>
-            <div style={{ marginLeft: "5vw" }}>
-              <CourseArea
-                data={this.state.filteredCourses}
-                allData={this.state.allCourses}
-                cartCourses={this.state.cartCourses}
-                addCartCourse={this.addCartCourse}
-                removeCartCourse={this.removeCartCourse.bind(this)}
-                mode="cart"
-              />
-            </div>
-          </Tab>
+            {/* Search Tab */}
+              <Tab eventKey="search" title="Search" style={{ paddingTop: "10vh" }}>
+                <Sidebar
+                  setCourses={(courses) => this.setCourses(courses)}
+                  courses={this.state.allCourses}
+                  subjects={this.state.subjects}
+                />
+                <div style={{  height: "calc(90vh)",
+                  marginLeft: "calc(60vw + 5px)",
+                  width: "calc(40vw - 5px)",
+                  position: "fixed",
+                  overflowY: "scroll"
+                }}>
+                  <CourseArea
+                    data={this.state.filteredCourses}
+                    allData={this.state.allCourses}
+                    cartCourses={this.state.cartCourses}
+                    addCartCourse={this.addCartCourse}
+                    removeCartCourse={this.removeCartCourse.bind(this)}
+                    mode="cart"
+                  />
+                </div>
+                <div style={{ marginLeft: "20vw" }}>
+                  <CourseArea
+                    data={this.state.filteredCourses}
+                    allData={this.state.allCourses}
+                    cartCourses={this.state.cartCourses}
+                    addCartCourse={this.addCartCourse.bind(this)}
+                    removeCartCourse={this.removeCartCourse.bind(this)}
+                  />
+                </div>
+              </Tab>
 
-          {/* Completed Courses Tab */}
-          <Tab
-            eventKey="completedCourses"
-            title={`Completed Courses (${this.getNumCoursesNeedsRating()} needs rating)`}
-            style={{ paddingTop: "5vh" }}
-          >
-            <div style={{ marginLeft: "5vw" }}>
-              <CourseArea
-                data={this.state.completedCourses}
-                allData={this.state.allCourses}
-                setRating={this.setRating.bind(this)}
-                mode="completed"
-              />
-            </div>
-          </Tab>
+              {/* Completed Courses Tab */}
+              <Tab
+                eventKey="completedCourses"
+                title={`Completed Courses (${this.getNumCoursesNeedsRating()} needs rating)`}
+                style={{ paddingTop: "10vh" }}
+              >
+                <div style={{ marginLeft: "5vw" }}>
+                  <CourseArea
+                    data={this.state.completedCourses}
+                    allData={this.state.allCourses}
+                    setRating={this.setRating.bind(this)}
+                    mode="completed"
+                  />
+                </div>
+              </Tab>
+
+
+          
+
+
         </Tabs>
+        
       </>
     );
   }

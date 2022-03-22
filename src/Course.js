@@ -58,15 +58,15 @@ class Course extends React.Component {
     let course = this.props.data;
 
     let buttonOnClick = () => this.addCourse(course);
-    let buttonText = "Add Course";
+    let buttonText = "♡";
 
     if (cartCourses.some((c) => c.number === course.number)) {
       buttonOnClick = () => this.removeCourse(course);
-      buttonText = "Remove Course";
+      buttonText = "♥";
     }
 
     return (
-      <Button className="me-1" variant="secondary" onClick={buttonOnClick}>
+      <Button id="addCourseButton" onClick={buttonOnClick}>
         {buttonText}
       </Button>
     );
@@ -74,7 +74,7 @@ class Course extends React.Component {
 
   getExpansionButton() {
     // Returns a button that expands/collapses the course description
-    let buttonText = this.state.expanded ?  "▲" :  "▼";
+    let buttonText = this.state.expanded ?  "Close Description" :  "View Description";
     let buttonOnClick = () => this.setExpanded(!this.state.expanded);
 
     return (
@@ -136,32 +136,42 @@ class Course extends React.Component {
     let description = this.props.data.description;
 
     return (
-      <Card className="col-6 mb-2 p-2">
+      <div>
+        <div>
+            {this.getCourseButton()}
+        </div>
         <Card.Title className="d-flex justify-content-between">
           {name} 
-          <div>
-            {this.getCourseButton()}
-            {this.getExpansionButton()}
-          </div>
+
         </Card.Title>
+
         <Card.Subtitle className="mb-2 text-muted">
           {course} · {credits + " Credits"}
+        <br></br>
+        <span><i><u>Requisites:</u>  {this.getRequisites()}</i></span>
         </Card.Subtitle>
 
-        {this.state.expanded && <p>{description}</p>}
-
+        
         {!this.props.compactView && (
           <>
-            <span><strong>Requisites: </strong> {this.getRequisites()}</span>
-            <span>
-              <u>Keywords:</u> {this.getKeywords()}
-            </span>
+            
+            <span><p style={{marginBottom: "0rem"}}><strong>Keywords: {this.getKeywords()}</strong></p>
+            <p>{description}</p></span>
+          </>
+        )}
+
+
+        {this.props.compactView && (
+          <>
+          {this.getExpansionButton()}
+            {this.state.expanded && <span><p style={{marginBottom: "0rem"}}><strong>Keywords: {this.getKeywords()}</strong></p>
+            <p>{description}</p></span>}
           </>
         )}
 
         {/* Completed courses do not have sections/subsections */}
         {!this.props.ratingMode && (
-          <Button className="mt-2" variant="dark" onClick={() => this.openModal()}>
+          <Button className="mt-2" variant="outline-dark" onClick={() => this.openModal()}>
             View sections and subsections
           </Button>
         )}
@@ -189,7 +199,7 @@ class Course extends React.Component {
             </Button>
           </Modal.Footer>
         </Modal>
-      </Card>
+      </div>
     );
   }
 }
