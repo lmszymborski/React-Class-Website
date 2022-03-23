@@ -188,7 +188,7 @@ class App extends React.Component {
                 title={`Completed Courses (${this.getNumCoursesNeedsRating()} needs rating)`}
                 style={{ backgroundColor: "white", paddingTop: "10vh" }}
               >
-                <div style={{ marginLeft: "5vw" }}>
+                <div style={{ marginLeft: "10px" }}>
                   <CourseArea
                     data={this.state.completedCourses}
                     allData={this.state.allCourses}

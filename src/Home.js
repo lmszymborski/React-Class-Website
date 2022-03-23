@@ -12,9 +12,9 @@ render() {
 
         <div class="home-p">
         <h2 class="title">Search</h2>
-        <p>Browse through courses and limit your search results by using filters such as by keyword, subject, or credit number. Add courses to your cart by clicking the "heart" icon.</p>
+        <p class="p-home">Browse through courses and limit your search results by using filters such as by keyword, subject, or credit number. Add courses to your cart by clicking the "heart" icon.</p>
         <h2 class="title">Completed Courses</h2>
-        <p>View courses that you have already taken. View their description by clicking "View Description". Rate the class 1 out of 5 by clicking on the star rating.</p>
+        <p class="p-home">View courses that you have already taken. View their description by clicking "View Description". Rate the class 1 out of 5 by clicking on the star rating.</p>
         </div>
     </div>;
   }
