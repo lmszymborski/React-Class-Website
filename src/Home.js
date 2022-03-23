@@ -6,9 +6,13 @@ class Home extends React.Component {
 render() {
     return <div id="home">
         <h2 class="title" id="homepage">Welcome to Course Viewer!</h2>
+
         <div class="home-p">
-        <p>To find, browse courses, and see courses in your cart, go to the search tab</p>
-        <p>To view and rate completed courses, go to the completed courses tab.</p>
+        <h2 class="title">Search</h2>
+        <p>Browse through courses and limit your search results by using filters such as by keyword, subject, or credit number. Add courses to your cart by clicking the "heart" icon.</p>
+        <h2 class="title">Completed Courses</h2>
+        <p>View courses that you have already taken. View their description by clicking "View Description". Rate the class 1 out of 5 by clicking on the star rating.</p>
+
         </div>
     </div>;
   }

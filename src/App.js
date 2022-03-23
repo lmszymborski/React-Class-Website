@@ -145,12 +145,12 @@ class App extends React.Component {
             backgroundColor: "white",
           }}
         >
-          <Tab eventKey="home" title="Home" style={{ paddingTop: "5vh" }}>
-            <Home/>
-          </Tab>
+            <Tab eventKey="home" title="Home" style={{ paddingTop: "10vh" }}>
+              <Home></Home>
+            </Tab>
 
             {/* Search Tab */}
-              <Tab eventKey="search" title="Search" style={{ paddingTop: "10vh" }}>
+              <Tab eventKey="search" title="Search" style={{  backgroundColor: "white", paddingTop: "10vh" }}>
                 <Sidebar
                   setCourses={(courses) => this.setCourses(courses)}
                   courses={this.state.allCourses}
@@ -186,7 +186,7 @@ class App extends React.Component {
               <Tab
                 eventKey="completedCourses"
                 title={`Completed Courses (${this.getNumCoursesNeedsRating()} needs rating)`}
-                style={{ paddingTop: "10vh" }}
+                style={{ backgroundColor: "white", paddingTop: "10vh" }}
               >
                 <div style={{ marginLeft: "5vw" }}>
                   <CourseArea

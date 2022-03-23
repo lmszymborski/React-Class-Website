@@ -1,21 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Petrona:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
+/* 6b84e2 0d6efd */
 :root {
   --header-font: 'Raleway', sans-serif;
   --header-color: #0d6efd;
+
   --secondary-font: 'Petrona', serif;
   --icon-color: #FF7B9C;
   --subtitle-color: black;
   --alt-color: #22223B;
 }
 
+/*
 body {
   font-family: var(--header-font);
   background-image: url("image.jpeg");
   background-repeat: no-repeat;
   background-size: 100vw;
   background-position: -300px 0;
-  }
+  }*/
+
+  body {
+    font-family: var(--header-font);
+    }
+
+.nav-link {
+  color: var(--header-color);
+}
 
 #addCourseButton.btn.btn-primary {
   float: right;
@@ -27,6 +37,7 @@ background-color: white;
 
 div.card {
   padding: .5rem;
+  margin: .5rem;
 }
 
 div.mb-2.text-muted.card-subtitle.h6 {
@@ -37,12 +48,17 @@ div.mb-2.text-muted.card-subtitle.h6 {
 .h5 {
   font-weight: 800;
   font-size: 25px;
+  color: var(--header-color);
+}
+
+#search-header {
+  color: black;
 }
 
 .sidebar {
   width: calc(20vw - 5px);
   margin-left: 5px;
-  height: calc(100vh - 10px);
+  height: calc(90vh - 10px);
   position: fixed;
 }
 
@@ -57,7 +73,7 @@ div.mb-2.text-muted.card-subtitle.h6 {
 .title {
   margin-left: 10px;
   font-weight: 800;
-  color: var(--header-color)
+  color: black;
 }
 
 h2 {
@@ -66,13 +82,19 @@ h2 {
   color: var(--header-color)
 }
 
-#homepage.title {
-  font-size: 8vw;
-  width: 50vw;
-}
-
 .home-p {
   float: right;
+  width: 40vw;
+  text-align: right;
+}
+
+#homepage.title {
+  color: var(--header-color);
+  float: left;
+  font-size: 8vw;
+  width: 50vw;
+  text-align: left;
+  float: left;
 }
 
 .star {
@@ -98,6 +120,5 @@ button {
 
 #home {
   padding: 20px;
-  float: right;
-  text-align: right;
+
 }
