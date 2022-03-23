@@ -83,18 +83,17 @@ h2 {
 }
 
 .home-p {
-  float: right;
+  float: left;
   width: 40vw;
-  text-align: right;
+  text-align: left;
 }
 
 #homepage.title {
   color: var(--header-color);
-  float: left;
   font-size: 8vw;
   width: 50vw;
-  text-align: left;
-  float: left;
+  text-align: right;
+  float: right;
 }
 
 .star {
